@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod  # here p is Caps
+metadata: # here some information about pod
+   name: akpod1  #this is my pod name 
+spec:
+  containers:  # about docker image and container information
+   - name: akc1 # name of the conatiner 
+     image: aakashgaur57/apache12 # image from dockerhub 
