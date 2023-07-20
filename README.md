@@ -1,36 +1,9 @@
 # Kubernetes :- The Production grade container orchestration  Engine 
-## Info about Kubernetes
-Kubernetes in the most powerfull container orchestration engine <br/>
-Its free for everyone <br/>
-## Developement  info 
-<ul>
-	<li> Developed by Google and CNCF  </li>
-	<li> 7 June 2014 is the Release date  </li>
-	<li> written in Go lang  </li>
-	
-</ul>
-
 ## Kubernetes multinode setup 
-###  we have 4 machines; 1 master and 3 worker nodes
+###  we have 3 machines; 1 master and 2 worker nodes
 ## Pre-requisite 
 
-### Disable selinux in all the nodes
 
-```
-  [root@master ~]# setenforce  0
-  [root@master ~]# sed -i 's/SELINUX=enforcing/SELINUX=disabled/'  /etc/selinux/config
-  
- ```
- 
- ### Enable the kernel bridge for every system
- ```
- [root@master ~]# modprobe br_netfilter
- [root@master ~]# echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
- ```
- ### Disable the swap 
- ```
- [root@master ~]# swapoff  -a
- ```
  ## Installing  docker and kubeadm in all the nodes 
  ```
  [root@master ~]# yum  install  docker kubeadm  -y
