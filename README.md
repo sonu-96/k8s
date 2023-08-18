@@ -33,34 +33,41 @@ X
  
 ## Start service of docker & kubelet in all the nodes 
  ```
- [root@master ~]# systemctl enable --now  docker kubelet
+ systemctl enable --now  docker kubelet
  ```
+## for kernel configuration
+```
+modprobe br_netfilter
+```
+```
+echo '1' > /proc/sys/net/ipv4/ip_forward
+```
  ## Do this only on Kubernetes Master 
  We are here using Calico Networking, so we need to pass some parameter 
  you can start [Kubernetes_networking](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/) from this  <br/>
  
 ```
-[root@master ~]# kubeadm  init --pod-network-cidr=192.168.0.0/16
+kubeadm  init --pod-network-cidr=192.168.0.0/16
 ```
 ## this is optional 
 ### In case of cloud services like aws, azure if want to bind public with certificate of kubernetes 
 ```
-[root@master ~]# kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=0.0.0.0   --apiserver-cert-extra-sans=publicip,privateip,serviceip
+kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=0.0.0.0   --apiserver-cert-extra-sans=publicip,privateip,serviceip
 ```
 
 ## Note: IF you want to bind your controlplane with public IP also 
 
 ```
-[root@master ~]# kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=0.0.0.0   --apiserver-cert-extra-sans=publicip,privateip,serviceip  --control-plane-endpoint=publicIP
+kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=0.0.0.0   --apiserver-cert-extra-sans=publicip,privateip,serviceip  --control-plane-endpoint=publicIP
 ```
 
 ### Use the output of above command and paste it to all the worker nodes
 
 ## Do this step in master node 
 ```
-[root@master ~]# mkdir -p $HOME/.kube
-[root@master ~]#  cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-[root@master ~]# chown $(id -u):$(id -g) $HOME/.kube/config
+mkdir -p $HOME/.kube
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 ##  Now apply calico project 
