@@ -19,6 +19,10 @@ baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
 gpgcheck=0
 EOF
 ```
+## now run 
+```
+yum update ; yum install kubeadm -y
+```
 
 ## Start service of docker & kubelet in all the nodes 
  ```
