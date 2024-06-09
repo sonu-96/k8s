@@ -62,3 +62,18 @@ kubectl create namespace hunter
  1437  192.168.49.2:31297
  1438  curl 192.168.49.2:31297
  1439  netstate -tulpen ----  # for checking port that are in used, used port list
+ 1554  kubectl get deployments.apps  --show-labels
+ 1555  kubectl get svc
+ 1556  kubectl describe svc kubecluster
+ 1557  kubectl get  pods -o wide
+ 1558  kubectl get svc
+ 1559  minikube ip 
+ 1560  curl 192.168.49.2:30010
+ 1561  kubectl describe  deployments.apps 
+ 1562  kubectl describe  deployments.apps  test3
+ 1563  docker ps
+ 1564  kubectl exec -it test3 -- bash
+ 1565  kubectl  get pods
+ 1566  kubectl exec -it test3-5d595fb4b-r2pgs  -- bash
+ 1567  kubectl exec -it test3-5d595fb4b-r2pgs  -- sh
+
