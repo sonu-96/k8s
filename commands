@@ -61,3 +61,4 @@ kubectl create namespace hunter
  1436  minikube ip
  1437  192.168.49.2:31297
  1438  curl 192.168.49.2:31297
+ 1439  netstate -tulpen ----  # for checking port that are in used, used port list
