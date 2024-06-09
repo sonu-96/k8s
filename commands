@@ -1,0 +1,63 @@
+kubectl create namespace hunter
+ 1377  kubectl get ns
+ 1378  kubectl config set-context --current --namespace hunter
+ 1379  ls
+ 1380  cd rsvpapp-kubernetes/
+ 1381  ls
+ 1382  vim rsvp-web-deployment.yaml 
+ 1383  kubectl create deployment rsvp-web-deployment.yaml 
+ 1384  vim rsvp-web-deployment.yaml 
+ 1385  kubectl create deployment rsvp-db-deployment.yaml 
+ 1386  vim rsvp-web-deployment.yaml 
+ 1387  ls
+ 1388  kubectl create -f rsvp-web-deployment.yaml 
+ 1389  kubectl describe deployments.apps 
+ 1390  vim pod1.yaml
+ 1391  kubectl create -f pod1.yaml 
+ 1392  vim pod1.yaml
+ 1393  kubectl create -f pod1.yaml 
+ 1394  vim pod1.yaml
+ 1395  kubectl create -f pod1.yaml 
+ 1396  vim pod1.yaml
+ 1397  kubectl create -f pod1.yaml 
+ 1398  vim rsvp-web-deployment.yaml 
+ 1399  vim pod1.yaml
+ 1400  kubectl create -f pod1.yaml 
+ 1401  vim pod1.yaml
+ 1402  kubectl create -f pod1.yaml 
+ 1403  kubectl describe pod pod1 
+ 1404  curl 10.244.0.14
+ 1405  minikube ip
+ 1406  pod ip
+ 1407  curl 192.168.49.2
+ 1408  vim pod1.yaml
+ 1409  kubectl expose pod pod1 --type=nodeport 
+ 1410  kubectl expose pod pod1 --type=nodeport --port=80
+ 1411  kubectl expose pod pod1 --type=NodePort --port=80
+ 1412  kubectl get svc
+ 1413  minikube ip
+ 1414  curl 192.168.49.2:30952
+ 1415  kubectl run --image=nginx pod2 --dry-run -o yaml
+ 1416  kubectl run --image=nginx pod2 --dry-run -o yaml | head 11
+ 1417  kubectl run --image=nginx pod2 --dry-run -o yaml | head -11
+ 1418  kubectl run --image=nginx pod2 --dry-run -o yaml | head -11 > pod2.yaml
+ 1419  kubectl run --image=nginx pod2 --dry-run -o yaml | head -11 
+ 1420  kubectl run --image=nginx pod2 --dry-run -o yaml | head -11 > vim pod2.yaml
+ 1421  ls
+ 1422  rm -rf vim 
+ 1423  ls
+ 1424  vim pod2.yaml 
+ 1425  kubectl explain pod2.yaml.metadata
+ 1426  kubectl explain pod2.metadata
+ 1427  kubectl explain pod pod2.metadata
+ 1428  kubectl explain pod.metadata 
+ 1429  kubectl expose pod pod2 --type=NodePort --port=80
+ 1430  vim pod2.yaml 
+ 1431  kubectl apply -f pod2.yaml 
+ 1432  kubectl expose pod pod2 --type=NodePort --port=80
+ 1433  kubectl describe pods
+ 1434  kubectl get pod
+ 1435  kubectl get svc
+ 1436  minikube ip
+ 1437  192.168.49.2:31297
+ 1438  curl 192.168.49.2:31297
